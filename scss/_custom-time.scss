@@ -1,0 +1,14 @@
+@import "variables";
+
+@if(variable_exists(use-framework)) {
+  @if not($use-framework) {
+    /**
+ * CustomTime v1.0 (https://github.com/deviscoding/custom-time) with Icons from Open Iconic (https://useiconic.com/open)
+ * @author  AMJones [am@jonesiscoding.com]
+ * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
+ */
+  }
+}
+
+@import "native";
+@import "faux";

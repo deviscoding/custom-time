@@ -1,0 +1,51 @@
+@import "variables";
+
+.custom-time-wrapper {
+  background: $custom-input-bg inline-svg($custom-time-icon) no-repeat left calc(#{$custom-input-padding-x/2} + 4px) center;
+  border: $custom-input-border-width solid $custom-input-border-color;
+  border-radius: $custom-input-border-radius;
+  height: $input-height;
+  padding: 0 $custom-input-padding-x/4 0 $custom-input-padding-x*2;
+  //noinspection CssInvalidPseudoSelector
+  &:focus-within {
+    border: $custom-input-border-width solid $custom-input-focus-border-color;
+    box-shadow: $custom-input-focus-box-shadow;
+    outline: none;
+  }
+  .custom-time {
+    display: none;
+  }
+  .custom-h, .custom-i, .custom-s, .custom-a {
+    appearance: none;
+    background: transparent inline-svg($custom-time-indicator) no-repeat right 0.5rem center;
+    border: none !important;
+    border-radius: 0 !important;
+    height: 100%;
+    padding: 0 calc(1rem + 8px) 0 .5rem;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border: none;
+    }
+  }
+}
+
+//noinspection CssInvalidMediaFeature
+@media handheld, screen and (pointer: coarse) {
+  .custom-time-wrapper {
+    //noinspection CssInvalidPseudoSelector
+    &:focus-within {
+      border: none;
+      box-shadow: none;
+    }
+    .custom-time {
+      border: none;
+      height: $custom-input-height-inner;
+      display: inline-block; // Shows for touch
+      padding: 0;
+    }
+    .custom-h, .custom-i, .custom-s, .custom-a {
+      display: none; // Use native for touch
+    }
+  }
+}

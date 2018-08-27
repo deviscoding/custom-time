@@ -1,0 +1,139 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "5745ed4d655b88cb556481f92649dfcd",
+    "packages": [
+        {
+            "name": "components/jquery",
+            "version": "1.12.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "5dd7297d7603e11e53bdcca2a71074d92de37b8f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/5dd7297d7603e11e53bdcca2a71074d92de37b8f",
+                "reference": "5dd7297d7603e11e53bdcca2a71074d92de37b8f",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery.min.map",
+                        "jquery-migrate.js",
+                        "jquery-migrate.min.js"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Resig",
+                    "email": "jeresig@gmail.com"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2016-05-25T06:50:04+00:00"
+        },
+        {
+            "name": "deviscoding/base",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deviscoding/base.git",
+                "reference": "e5ea652de177b8316044842cd76c4b4bdd2478f1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deviscoding/base/zipball/e5ea652de177b8316044842cd76c4b4bdd2478f1",
+                "reference": "e5ea652de177b8316044842cd76c4b4bdd2478f1",
+                "shasum": ""
+            },
+            "replace": {
+                "strapless/base": "^2.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron M Jones",
+                    "homepage": "http://www.jonesiscoding.com"
+                }
+            ],
+            "description": "SASS Functions & mixins for managing variables within various SASS components.",
+            "homepage": "https://www.github.com/deviscoding/base",
+            "keywords": [
+                "css",
+                "maps",
+                "sass",
+                "scss",
+                "strapless",
+                "variables"
+            ],
+            "time": "2018-06-20T12:44:34+00:00"
+        },
+        {
+            "name": "deviscoding/colors",
+            "version": "1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/deviscoding/colors.git",
+                "reference": "dd4a6ee5aab611b0f4e7e2d1f8c481caa1203e39"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deviscoding/colors/zipball/dd4a6ee5aab611b0f4e7e2d1f8c481caa1203e39",
+                "reference": "dd4a6ee5aab611b0f4e7e2d1f8c481caa1203e39",
+                "shasum": ""
+            },
+            "replace": {
+                "strapless/colors": "^1.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron M Jones",
+                    "homepage": "http://www.jonesiscoding.com"
+                }
+            ],
+            "description": "SASS color functions, maps and CSS used in DevIsCoding components.  Can also be used quite effectively in any SASS where one desires an easy way to manage colors.",
+            "homepage": "https://www.github.com/deviscoding/colors",
+            "keywords": [
+                "color",
+                "map",
+                "sass",
+                "scss",
+                "strapless"
+            ],
+            "time": "2018-05-23T15:47:48+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

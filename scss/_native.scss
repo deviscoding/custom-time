@@ -1,0 +1,8 @@
+@import "variables";
+
+.custom-time {
+  border: $input-border-width solid $custom-input-border-color;
+  border-radius: $custom-input-border-radius;
+  height: $custom-input-height;
+  padding: 0 0 0 $custom-input-padding-x; // No padding on right, already spacing
+}

@@ -1,0 +1,91 @@
+@import "deviscoding/base/scss/base";
+@import "deviscoding/colors/scss/colors";
+
+$use-framework: false !default;
+
+// region //////////////////////////////////////////////// Bootstrap 4 Shim Variables
+
+// Basics
+$component-active-bg:        theme-color("primary") !default;
+$font-size-base:             1rem !default;
+$font-size-lg:               ($font-size-base * 1.25) !default;
+$font-size-sm:               ($font-size-base * .875) !default;
+
+// Input/Btn
+$input-btn-padding-y:        .375rem !default;
+$input-btn-padding-x:        .75rem !default;
+$input-btn-line-height:      if(variable-exists(line-height-base), $line-height-base, 1.5) !default;
+
+$input-btn-padding-y-sm:      .25rem !default;
+$input-btn-padding-x-sm:      .5rem !default;
+$input-btn-line-height-sm:    if(variable-exists(line-height-sm), $line-height-sm, $input-btn-line-height) !default;
+
+$input-btn-padding-y-lg:      .5rem !default;
+$input-btn-padding-x-lg:      1rem !default;
+$input-btn-line-height-lg:    if(variable-exists(line-height-lg), $line-height-lg, $input-btn-line-height) !default;
+
+// Input
+$input-border-width:         if(variable-exists(border-width), $border-width, 1px) !default;
+$input-height-border:        $input-border-width * 2 !default;
+
+$input-height-inner:         ($font-size-base * $input-btn-line-height) + ($input-btn-padding-y * 2) !default;
+$input-height:               calc(#{$input-height-inner} + #{$input-height-border}) !default;
+
+$input-height-inner-sm:      ($font-size-sm * $input-btn-line-height-sm) + ($input-btn-padding-y-sm * 2) !default;
+$input-height-sm:            calc(#{$input-height-inner-sm} + #{$input-height-border}) !default;
+
+$input-height-inner-lg:      ($font-size-lg * $input-btn-line-height-lg) + ($input-btn-padding-y-lg * 2) !default;
+$input-height-lg:            calc(#{$input-height-inner-lg} + #{$input-height-border}) !default;
+
+// endregion ///////////////////////////////////////////// End Bootstrap 4 Shim Variables
+
+// region //////////////////////////////////////////////// Custom Input Variables
+
+$custom-input-color:          if(variable-exists(input-color), $input-color, gray(700)) !default;
+$custom-input-bg:             if(variable-exists(input-bg), $input-bg, #fff ) !default;
+$custom-input-border-color:   if(variable-exists(input-border-color), $input-border-color, gray(400)) !default;
+$custom-input-border-width:   if(variable-exists(input-border-width), $input-border-width, 1px) !default;
+$custom-input-box-shadow:     if(variable-exists(input-box-shadow), $input-box-shadow, inset 0 1px 1px rgba(#000, .075)) !default;
+
+$custom-input-border-radius:     if(variable-exists(input-border-radius), $input-border-radius, 2px) !default;
+$custom-input-border-radius-lg:  if(variable-exists(input-border-radius), $input-border-radius-lg, 6px) !default;
+$custom-input-border-radius-sm:  if(variable-exists(input-border-radius), $input-border-radius-sm, 1px) !default;
+
+$custom-input-focus-bg:             if(variable-exists(input-bg), $input-bg, #fff) !default;
+$custom-input-focus-border-color:   if(variable-exists(input-focus-border-color), $input-focus-border-color, lighten($component-active-bg, 25%)) !default;
+$custom-input-focus-color:          if(variable-exists(input-color), $input-color, #000) !default;
+$custom-input-focus-box-shadow:     if(variable-exists(input-btn-focus-box-shadow), $input-btn-focus-box-shadow, 0 0 0 0.2rem rgba($component-active-bg, .25)) !default;
+
+$custom-input-placeholder-color:    if(variable-exists(input-placeholder-color), $input-placeholder-color, gray(600)) !default;
+$custom-input-plaintext-color:      if(variable-exists(body-color), $body-color, #000) !default;
+
+$custom-input-padding-x:      $input-btn-padding-x !default;
+$custom-input-padding-y:      $input-btn-padding-y !default;
+$custom-input-padding-x-lg:   $input-btn-padding-x-lg !default;
+$custom-input-padding-y-lg:   $input-btn-padding-y-lg !default;
+$custom-input-padding-x-sm:   $input-btn-padding-x-sm !default;
+$custom-input-padding-y-sm:   $input-btn-padding-y-sm !default;
+
+$custom-input-height-inner:   $input-height-inner !default;
+$custom-input-height:         $input-height !default;
+
+$custom-input-height-inner-lg: $input-height-inner-lg !default;
+$custom-input-height-lg:       $input-height-lg !default;
+
+$custom-input-height-inner-sm: $input-height-inner-sm !default;
+$custom-input-height-sm:       $input-height-sm !default;
+
+// endregion ///////////////////////////////////////////// End Custom Input Variables
+
+// region //////////////////////////////////////////////// Custom Time Variables
+
+$custom-time-icon-color: $custom-input-color !default;
+$custom-time-icon:  '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="#{$custom-time-icon-color}" d="M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 1c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm-.5 1v2.22l.16.13.5.5.34.38.72-.72-.38-.34-.34-.34v-1.81h-1z" /></svg>' !default;
+
+$custom-time-indicator-color: if(variable-exists(custom-select-indicator-color), $custom-select-indicator-color, rgba($custom-input-color, 0.5)) !default;
+$custom-time-indicator: if(variable-exists(custom-select-indicator), $custom-select-indicator, '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="#{$custom-time-indicator-color}" d="M0 0l4 4 4-4h-8z" transform="translate(0 2)" /></svg>') !default;
+
+// endregion ///////////////////////////////////////////// End Custom Time Variables
+
+
+

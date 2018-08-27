@@ -1,0 +1,24 @@
+{
+    "name": "deviscoding/custom-time",
+    "description": "Cross browser time implementation using CSS and JQuery.  Compatible with Twitter Bootstrap",
+    "keywords": [
+        "bootstrap",
+        "time",
+        "replacement",
+        "sass"
+    ],
+    "homepage": "https://github.com/deviscoding/custom-time",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "AMJones",
+            "homepage": "https://www.deviscoding.com/"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        "deviscoding/colors": "^1.0",
+        "deviscoding/base": "^2.0",
+        "components/jquery": "^1.10"
+    }
+}
