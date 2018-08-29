@@ -50,11 +50,13 @@
     ct.update = function() {
       if(ct.$input.val() != ct.value) {
         ct.value = ct.$input.val();
-        var t = parseTime(ct.value);
-        ct.$hour.val( pad( t.h ) );
-        ct.$min.val( pad( t.i ) );
-        ct.$sec.val( pad( t.s ) );
-        ct.$cnv.val( t.a );
+        if(ct.value.length) {
+          var t = parseTime(ct.value);
+          ct.$hour.val( pad( t.h ) );
+          ct.$min.val( pad( t.i ) );
+          ct.$sec.val( pad( t.s ) );
+          ct.$cnv.val( t.a );
+        }
       } else {
         var a  = ct.$cnv.val();
         var h  = ct.$hour.val();
@@ -108,6 +110,7 @@
       ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
       ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
       ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
+      ct.$input.on('change blur', ct.update);
 
       ct.update();
     };
