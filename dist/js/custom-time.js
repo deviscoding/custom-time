@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0 (https://github.com/deviscoding/custom-time)
+ * CustomTime v1.0.2 (https://github.com/deviscoding/custom-time)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
@@ -50,11 +50,13 @@
     ct.update = function() {
       if(ct.$input.val() != ct.value) {
         ct.value = ct.$input.val();
-        var t = parseTime(ct.value);
-        ct.$hour.val( pad( t.h ) );
-        ct.$min.val( pad( t.i ) );
-        ct.$sec.val( pad( t.s ) );
-        ct.$cnv.val( t.a );
+        if(ct.value.length) {
+          var t = parseTime(ct.value);
+          ct.$hour.val( pad( t.h ) );
+          ct.$min.val( pad( t.i ) );
+          ct.$sec.val( pad( t.s ) );
+          ct.$cnv.val( t.a );
+        }
       } else {
         var a  = ct.$cnv.val();
         var h  = ct.$hour.val();
@@ -108,6 +110,7 @@
       ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
       ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
       ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
+      ct.$input.on('change blur', ct.update);
 
       ct.update();
     };
@@ -120,7 +123,7 @@
       var $sel = ct.$input.siblings( '.' + ct.settings.cls[ key ] );
       if ( !$sel.length ) {
         if(key === 'a') {
-          $sel = $( '<select><option value=""></option><option value="am">AM</option><option value="pm">PM</option></select>' );
+          $sel = $( '<select><option value="">--</option><option value="am">AM</option><option value="pm">PM</option></select>' );
         } else {
           $sel = makeSelect( { min:  ct.min( key ), max:  ct.max( key ), step: ct.step( key ) } );
         }
@@ -140,7 +143,7 @@
     var makeSelect = function(options) {
       var option = '<option value="#">#</option>';
       var $sel = $('<select></select>');
-      $sel.append(option.replace(/#/g,''));
+      $sel.append(option.replace(/#/g,'--'));
       for(var x = options.min || 0; x <= options.max; x = x + options.step) {
         var val = (x < 10) ? '0' + x : x;
         $sel.append(option.replace(/#/g,val));

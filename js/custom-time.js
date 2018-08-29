@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0 (https://github.com/deviscoding/custom-time)
+ * CustomTime v1.0.2 (https://github.com/deviscoding/custom-time)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
