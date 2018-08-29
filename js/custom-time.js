@@ -120,7 +120,7 @@
       var $sel = ct.$input.siblings( '.' + ct.settings.cls[ key ] );
       if ( !$sel.length ) {
         if(key === 'a') {
-          $sel = $( '<select><option value=""></option><option value="am">AM</option><option value="pm">PM</option></select>' );
+          $sel = $( '<select><option value="">--</option><option value="am">AM</option><option value="pm">PM</option></select>' );
         } else {
           $sel = makeSelect( { min:  ct.min( key ), max:  ct.max( key ), step: ct.step( key ) } );
         }
@@ -140,7 +140,7 @@
     var makeSelect = function(options) {
       var option = '<option value="#">#</option>';
       var $sel = $('<select></select>');
-      $sel.append(option.replace(/#/g,''));
+      $sel.append(option.replace(/#/g,'--'));
       for(var x = options.min || 0; x <= options.max; x = x + options.step) {
         var val = (x < 10) ? '0' + x : x;
         $sel.append(option.replace(/#/g,val));
