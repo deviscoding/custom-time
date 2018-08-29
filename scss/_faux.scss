@@ -15,7 +15,7 @@
   .custom-time {
     display: none;
   }
-  .custom-h, .custom-i, .custom-s, .custom-a {
+  select[class*="custom-time-"] {
     appearance: none;
     background: transparent inline-svg($custom-time-indicator) no-repeat right 0.5rem center;
     border: none !important;
@@ -51,7 +51,7 @@
       display: inline-block; // Shows for touch
       padding: 0;
     }
-    .custom-h, .custom-i, .custom-s, .custom-a {
+    select[class*="custom-time-"] {
       display: none; // Use native for touch
     }
   }
