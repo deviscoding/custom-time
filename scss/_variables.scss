@@ -79,13 +79,10 @@ $custom-input-height-sm:       $input-height-sm !default;
 
 // region //////////////////////////////////////////////// Custom Time Variables
 
-$custom-time-icon-color: $custom-input-color !default;
-$custom-time-icon:  '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="#{$custom-time-icon-color}" d="M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 1c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm-.5 1v2.22l.16.13.5.5.34.38.72-.72-.38-.34-.34-.34v-1.81h-1z" /></svg>' !default;
+$custom-time-icon-color: rgba($custom-input-color, 0.7) !default;
+$custom-time-icon:  '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 8 8"><path fill="#{$custom-time-icon-color}" d="M4 0c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4zm0 1c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm-.5 1v2.22l.16.13.5.5.34.38.72-.72-.38-.34-.34-.34v-1.81h-1z" /></svg>' !default;
 
-$custom-time-indicator-color: if(variable-exists(custom-select-indicator-color), $custom-select-indicator-color, rgba($custom-input-color, 0.5)) !default;
-$custom-time-indicator: if(variable-exists(custom-select-indicator), $custom-select-indicator, '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="#{$custom-time-indicator-color}" d="M0 0l4 4 4-4h-8z" transform="translate(0 2)" /></svg>') !default;
+$custom-time-separator-color: if(variable-exists(custom-select-indicator-color), $custom-select-indicator-color, rgba($custom-input-color, 0.7)) !default;
+$custom-time-separator: '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><path fill="#{$custom-time-separator-color}" d="M3,7H5V5H3ZM3,3H5V1H3Z"/></svg>' !default;
 
 // endregion ///////////////////////////////////////////// End Custom Time Variables
-
-
-

@@ -16,15 +16,20 @@
     display: none;
   }
   select[class*="custom-time-"] {
+    background-color: transparent;
     appearance: none;
-    background: transparent inline-svg($custom-time-indicator) no-repeat right 0.5rem center;
     border: none !important;
     border-radius: 0 !important;
     height: 100%;
-    padding: 0 calc(1rem + 8px) 0 .5rem;
+    min-width: 2rem;
+    text-align: center;
+    padding: 0 3px 0 0;
+    > option {
+      padding: 0;
+    }
     &:focus {
       outline: none;
-      background-color: $custom-input-focus-bg !important; // Note: This doesn't match $~focus-bg from BS4 on purpose.
+      background-color: rgba($input-border-color,.5) !important;
       box-shadow: none;
       border: none;
     }
@@ -38,6 +43,15 @@
       color: transparent;       // Kills odd artifacts around text in Firefox focus
       text-shadow: 0 0 0 #000;  // https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring
     }
+  }
+  select.custom-time-i, select.custom-time-s {
+    background: transparent inline-svg($custom-time-separator) no-repeat left 2px center;
+    padding: 0 0 0 4px;
+    min-width: calc(2rem + 4px);
+    margin-left: -2px;
+  }
+  select.custom-time-a {
+    min-width: 2.25rem;
   }
 }
 
