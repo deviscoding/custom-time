@@ -29,7 +29,7 @@
     }
     &:focus {
       outline: none;
-      background-color: rgba($input-border-color,.5) !important;
+      background-color: rgba($custom-input-focus-bg,.5) !important;
       box-shadow: none;
       border: none;
     }
