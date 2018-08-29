@@ -24,8 +24,12 @@
     padding: 0 calc(1rem + 8px) 0 .5rem;
     &:focus {
       outline: none;
+      background-color: $custom-input-focus-bg !important; // Note: This doesn't match $~focus-bg from BS4 on purpose.
       box-shadow: none;
       border: none;
+    }
+    &:hover {
+      background-color: rgba($custom-input-focus-bg, .7);
     }
     &::-ms-expand {
       opacity: 0; // Hides native caret in IE (Note: Pre IE10 will see NO arrow)

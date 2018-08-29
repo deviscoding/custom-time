@@ -51,7 +51,7 @@ $custom-input-border-radius:     if(variable-exists(input-border-radius), $input
 $custom-input-border-radius-lg:  if(variable-exists(input-border-radius), $input-border-radius-lg, 6px) !default;
 $custom-input-border-radius-sm:  if(variable-exists(input-border-radius), $input-border-radius-sm, 1px) !default;
 
-$custom-input-focus-bg:             if(variable-exists(input-bg), $input-bg, #fff) !default;
+$custom-input-focus-bg:             lighten($component-active-bg, 25%) !default;
 $custom-input-focus-border-color:   if(variable-exists(input-focus-border-color), $input-focus-border-color, lighten($component-active-bg, 25%)) !default;
 $custom-input-focus-color:          if(variable-exists(input-color), $input-color, #000) !default;
 $custom-input-focus-box-shadow:     if(variable-exists(input-btn-focus-box-shadow), $input-btn-focus-box-shadow, 0 0 0 0.2rem rgba($component-active-bg, .25)) !default;
