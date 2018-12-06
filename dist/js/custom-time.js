@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0.2 (https://github.com/deviscoding/custom-time)
+ * CustomTime v1.0.3 (https://github.com/deviscoding/custom-time)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
@@ -33,7 +33,7 @@
 
     ct.step = function(key) {
       if(_step === null) {
-        var s = ct.$input.attr('step') || 60;
+        var s = parseInt(ct.$input.attr('step')) || 60;
         _step = { h: 1, i: 1, s: 1 };
         if(s >= 3600) {
           _step.h = Math.floor(s/3600);
@@ -59,11 +59,11 @@
         }
       } else {
         var a  = ct.$cnv.val();
-        var h  = ct.$hour.val();
+        var h  = ct.$hour.val() || null;
         var i  = ( ct.settings.widgets.i ) ? ct.$min.val() : '00';
         var s  = ( ct.settings.widgets.s ) ? ct.$sec.val() : null;
 
-        if ( a.length && i.length && h.length ) {
+        if ( a.length && i.length && (h && h.length) ) {
           if(12 == h) { h = "0"; }
           if ( 'am' !== a ) {
             var hh = 12 + parseInt(h,10);
@@ -87,7 +87,7 @@
       var a = 'am';
 
       if(h >= 12) {
-        h = (minmax) ? 12 : h - 12;
+        h = (minmax || h === 12) ? 12 : h - 12;
         a = 'pm';
       } else if(minmax && 0 === h) {
         h = 1;

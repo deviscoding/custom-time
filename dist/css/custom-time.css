@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0.2 (https://github.com/deviscoding/custom-time) with Icons from Open Iconic (https://useiconic.com/open)
+ * CustomTime v1.0.3 (https://github.com/deviscoding/custom-time) with Icons from Open Iconic (https://useiconic.com/open)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
@@ -30,8 +30,6 @@
 
 .custom-time-wrapper select[class*="custom-time-"] {
   background-color: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   border: none !important;
   border-radius: 0 !important;
