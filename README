@@ -1,2 +1,5 @@
 Custom Time
 =========
+
+Addresses missing functionality in Firefox, Safari, and Internet Explorer 11 by adding `<select>` elements for each
+component of a time input (hours, minutes, seconds, and am/pm).

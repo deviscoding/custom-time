@@ -6,7 +6,7 @@
 ;(function($) {
 
   $.customtime = function(el, options) {
-    var defaults = { cls: { h: 'custom-time-h', i: 'custom-time-i', s: 'custom-time-s', a: 'custom-time-a' }};
+    var defaults = { native: false, cls: { h: 'custom-time-h', i: 'custom-time-i', s: 'custom-time-s', a: 'custom-time-a' }};
     var ct = this;
 
     var _min = null;
@@ -56,12 +56,17 @@
           ct.$min.val( pad( t.i ) );
           ct.$sec.val( pad( t.s ) );
           ct.$cnv.val( t.a );
+        } else {
+          ct.$hour[0].selectedIndex = null;
+          ct.$min[0].selectedIndex = null;
+          ct.$sec[0].selectedIndex = null;
+          ct.$cnv[0].selectedIndex = null;
         }
       } else {
-        var a  = ct.$cnv.val();
-        var h  = ct.$hour.val() || null;
-        var i  = ( ct.settings.widgets.i ) ? ct.$min.val() : '00';
-        var s  = ( ct.settings.widgets.s ) ? ct.$sec.val() : null;
+        var a  = (ct.$cnv.val() !== '--' && ct.$cnv.val().length) ? ct.$cnv.val() : '';
+        var h  = (ct.$hour.val() !== '--' && ct.$hour.val().length) ? ct.$hour.val() : '';
+        var i  = ( ct.settings.widgets.i && ct.$min.val() !== '--' && ct.$min.val().length ) ? ct.$min.val() : '00';
+        var s  = ( ct.settings.widgets.s && ct.$sec.val() !== '--' && ct.$sec.val().length ) ? ct.$sec.val() : '00';
 
         if ( a.length && i.length && (h && h.length) ) {
           if(12 == h) { h = "0"; }
@@ -105,14 +110,35 @@
       ct.settings = $.extend( {}, defaults, options );
       ct.settings.step = ct.$input.attr('step') || 60;
       ct.settings.widgets = ct.settings.widgets || { h: true, i: (ct.settings.step < 3600), s: (ct.settings.step < 60), a: true };
+      ct.settings.native = (ct.$input.data('native') || ct.settings.native) && ct.$input[0].type === 'time'
 
-      ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update );
-      ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
-      ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
-      ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
-      ct.$input.on('change blur', ct.update);
+      if(!ct.settings.native)
+      {
+        ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$input.on('change blur', ct.update);
 
-      ct.update();
+        ct.update();
+      }
+    };
+
+    var onKeyDown = function(e) {
+      var keyPressed = e.which;
+      switch(keyPressed) {
+        case 8:
+        case 27:
+        case 46:
+          e.currentTarget.selectedIndex = null;
+          break;
+        case 39:
+          e.currentTarget.nextSibling.focus()
+          break;
+        case 37:
+          e.currentTarget.previousSibling.focus();
+          break;
+      }
     };
 
     /**
