@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0.3 (https://github.com/deviscoding/custom-time) with Icons from Open Iconic (https://useiconic.com/open)
+ * CustomTime v1.1 (https://github.com/deviscoding/custom-time) with Icons from Open Iconic (https://useiconic.com/open)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
@@ -24,7 +24,7 @@
   outline: none;
 }
 
-.custom-time-wrapper .custom-time {
+.custom-time-wrapper .custom-time:not([data-native=true]) {
   display: none;
 }
 

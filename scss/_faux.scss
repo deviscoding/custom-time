@@ -12,7 +12,7 @@
     box-shadow: $custom-input-focus-box-shadow;
     outline: none;
   }
-  .custom-time {
+  .custom-time:not([data-native=true]) {
     display: none;
   }
   select[class*="custom-time-"] {
