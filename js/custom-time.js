@@ -114,12 +114,30 @@
 
       if(!ct.settings.native)
       {
-        ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update );
-        ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
-        ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
-        ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
+        ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
+        ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update ).on('keydown', onKeyDown);
         ct.$input.on('change blur', ct.update);
+
         ct.update();
+      }
+    };
+
+    var onKeyDown = function(e) {
+      var keyPressed = e.which;
+      switch(keyPressed) {
+        case 8:
+        case 27:
+        case 46:
+          e.currentTarget.selectedIndex = null;
+          break;
+        case 39:
+          e.currentTarget.nextSibling.focus()
+          break;
+        case 37:
+          e.currentTarget.previousSibling.focus();
+          break;
       }
     };
 
