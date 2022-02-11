@@ -56,12 +56,17 @@
           ct.$min.val( pad( t.i ) );
           ct.$sec.val( pad( t.s ) );
           ct.$cnv.val( t.a );
+        } else {
+          ct.$hour[0].selectedIndex = null;
+          ct.$min[0].selectedIndex = null;
+          ct.$sec[0].selectedIndex = null;
+          ct.$cnv[0].selectedIndex = null;
         }
       } else {
-        var a  = ct.$cnv.val();
-        var h  = ct.$hour.val() || null;
-        var i  = ( ct.settings.widgets.i ) ? ct.$min.val() : '00';
-        var s  = ( ct.settings.widgets.s ) ? ct.$sec.val() : null;
+        var a  = (ct.$cnv.val() !== '--' && ct.$cnv.val().length) ? ct.$cnv.val() : '';
+        var h  = (ct.$hour.val() !== '--' && ct.$hour.val().length) ? ct.$hour.val() : '';
+        var i  = ( ct.settings.widgets.i && ct.$min.val() !== '--' && ct.$min.val().length ) ? ct.$min.val() : '00';
+        var s  = ( ct.settings.widgets.s && ct.$sec.val() !== '--' && ct.$sec.val().length ) ? ct.$sec.val() : '00';
 
         if ( a.length && i.length && (h && h.length) ) {
           if(12 == h) { h = "0"; }
