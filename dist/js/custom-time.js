@@ -1,5 +1,5 @@
 /**
- * CustomTime v1.0.3 (https://github.com/deviscoding/custom-time)
+ * CustomTime v1.1.1 (https://github.com/deviscoding/custom-time)
  * @author  AMJones [am@jonesiscoding.com]
  * @licence MIT (https://github.com/deviscoding/custom-time/blob/master/LICENSE)
  */
@@ -82,6 +82,9 @@
 
           ct.value = _faux.join(':');
           ct.$input.val( ct.value );
+        } else {
+          ct.value = '';
+          ct.$input.val( '' );
         }
       }
     };
