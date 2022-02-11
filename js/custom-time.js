@@ -6,7 +6,7 @@
 ;(function($) {
 
   $.customtime = function(el, options) {
-    var defaults = { cls: { h: 'custom-time-h', i: 'custom-time-i', s: 'custom-time-s', a: 'custom-time-a' }};
+    var defaults = { native: false, cls: { h: 'custom-time-h', i: 'custom-time-i', s: 'custom-time-s', a: 'custom-time-a' }};
     var ct = this;
 
     var _min = null;
@@ -110,14 +110,17 @@
       ct.settings = $.extend( {}, defaults, options );
       ct.settings.step = ct.$input.attr('step') || 60;
       ct.settings.widgets = ct.settings.widgets || { h: true, i: (ct.settings.step < 3600), s: (ct.settings.step < 60), a: true };
+      ct.settings.native = (ct.$input.data('native') || ct.settings.native) && ct.$input[0].type === 'time'
 
-      ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update );
-      ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
-      ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
-      ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
-      ct.$input.on('change blur', ct.update);
-
-      ct.update();
+      if(!ct.settings.native)
+      {
+        ct.$hour = getSelect( 'h' ).on( 'change blur', ct.update );
+        ct.$min  = getSelect( 'i' ).on( 'change blur', ct.update );
+        ct.$sec  = getSelect( 's' ).on( 'change blur', ct.update );
+        ct.$cnv  = getSelect( 'a' ).on( 'change blur', ct.update );
+        ct.$input.on('change blur', ct.update);
+        ct.update();
+      }
     };
 
     /**
